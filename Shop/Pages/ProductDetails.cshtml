@@ -1,0 +1,21 @@
+﻿@page
+@model Shop.Pages.ProductDetailsModel
+
+@{
+    ViewData["Title"] = "ProductDetails";
+}
+
+<div class="grid">
+    <div item xs={12}>
+        <div class="box">
+            <div style="background-image:url('@Html.DisplayFor(model =>  model.Products.image)')" class="main-image" ></div>
+        </div>
+
+        <div style="width:"70%",textAlign:"left", margin:"auto"">
+            <h3>@Html.DisplayFor(model => model.Products.productName)</h3>
+            <h2>$ @Html.DisplayFor(model => model.Products.unitPrice)</h2>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,90 @@
+﻿@page
+@model Shop.Pages.Admin.Supplier.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Company Name
+            </th>
+            <th>
+                Contact Name
+            </th>
+            <th>
+                Contact Title
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Region
+            </th>
+            <th>
+                Zip Code
+            </th>
+            <th>
+                Country
+            </th>
+            <th>
+                Fax
+            </th>
+            <th>
+                Website
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Suppliers) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.companyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.homepage)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.supplierID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.supplierID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.supplierID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

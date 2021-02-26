@@ -1,0 +1,90 @@
+﻿@page
+@model Shop.Pages.Admin.Product.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Category ID
+            </th>
+            <th>
+                Supplier ID
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Units in Stock
+            </th>
+            <th>
+                Units in Order
+            </th>
+            <th>
+                Recorder Level
+            </th>
+            <th>
+                Discontinued
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Products) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categories.categoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.suppliers.supplierID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantityPerLabel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unitsInStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unitsOnOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recorderLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.discontinued)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.productID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.productID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.productID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

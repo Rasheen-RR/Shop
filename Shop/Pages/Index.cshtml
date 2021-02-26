@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="items">
+
+    @foreach (var item in Model.Products)
+    {
+
+
+    <div class="card">
+        <img src=" @Html.DisplayFor(modelItem => item.image)" />
+        <div class="descgrid">
+           
+            <p class="name">  <a asp-page="./ProductDetails" asp-route-id="@item.productID">@Html.DisplayFor(modelItem => item.productName)</a> |</p>
+            <p class="price">$@Html.DisplayFor(modelItem => item.unitPrice)</p>
+        </div>
+       
+    </div>
+                
+    }
+
+
+</div>
